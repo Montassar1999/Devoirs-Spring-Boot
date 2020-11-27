@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.montassar.entities.Developpeur;
+import com.montassar.entities.Societe;
 import com.montassar.repos.DeveloppeurRepository;
 
 @Service
@@ -44,6 +45,41 @@ public class DeveloppeurSeriviceImpl implements DeveloppeurService{
 	@Override
 	public List<Developpeur> getAllDeveloppeurs() {
 		return developpeurRepository.findAll();
+	}
+
+	@Override
+	public List<Developpeur> findByNom(String nom) {
+		return developpeurRepository.findByNom(nom);
+	}
+
+	@Override
+	public List<Developpeur> findByNomContains(String nom) {
+		return developpeurRepository.findByNomContains(nom);
+	}
+
+	@Override
+	public List<Developpeur> findByNomSalaire(String nom, Double salaire) {
+		return developpeurRepository.findByNomSalaire(nom, salaire);
+	}
+
+	@Override
+	public List<Developpeur> findBySociete(Societe societe) {
+		return developpeurRepository.findBySociete(societe);
+	}
+
+	@Override
+	public List<Developpeur> findBySocieteIdS(Long id) {
+		return developpeurRepository.findBySocieteIdS(id);
+	}
+
+	@Override
+	public List<Developpeur> findByOrderByNomAsc() {
+		return developpeurRepository.findByOrderByNomAsc();
+	}
+
+	@Override
+	public List<Developpeur> trierDeveloppeursNomsSalaire() {
+		return developpeurRepository.trierDeveloppeursNomsSalaire();
 	}
 
 }

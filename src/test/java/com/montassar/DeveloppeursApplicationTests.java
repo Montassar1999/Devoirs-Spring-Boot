@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.montassar.entities.Developpeur;
+import com.montassar.entities.Societe;
 import com.montassar.repos.DeveloppeurRepository;
 
 @SpringBootTest
@@ -51,5 +52,79 @@ class DeveloppeursApplicationTests {
 			System.out.println(d);
 		}
 	}
+	
+	@Test
+	 public void testFindByNom()
+	 {
+	 List<Developpeur> devs = developpeurRepository.findByNom("montassar");
+	 for (Developpeur d : devs)
+	 {
+	 System.out.println(d);
+	 }
+	 }
+	 @Test
+	 public void testFindByNomContains ()
+	 {
+	 List<Developpeur> devs=developpeurRepository.findByNomContains("mo");
+	 for (Developpeur d : devs)
+	 {
+	 System.out.println(d);
+	 } }
+	 
+	@Test
+	 public void testfindByNomSalaire()
+	 {
+	 List<Developpeur> devs = developpeurRepository.findByNomSalaire("montassar", 1000.0);
+	 for (Developpeur d : devs)
+	 {
+	 System.out.println(d);
+	 }
+	 }
+	
+	@Test
+	public void testfindBySociete()
+	{
+	Societe s = new Societe();
+s.setIdS(1L);
+	List<Developpeur> devs = developpeurRepository.findBySociete(s);
+	for (Developpeur d : devs)
+	{
+	System.out.println(d);
+	}
+	}
+
+	
+	@Test
+	public void findBySocieteIdS()
+	{
+	List<Developpeur> devs = developpeurRepository.findBySocieteIdS(1L);
+	for (Developpeur d : devs)
+	{
+	System.out.println(d);
+	}
+	 }
+	
+	
+	@Test
+	public void testfindByOrderByNomDeveloppeurAsc()
+	{
+	List<Developpeur> devs =developpeurRepository.findByOrderByNomAsc();
+	for (Developpeur d:devs)
+	{
+	System.out.println(d);
+	}
+	}
+	
+	
+	@Test
+	public void testTrierDeveloppeursNomsSalaire()
+	{
+	List<Developpeur> devs = developpeurRepository.trierDeveloppeursNomsSalaire();
+	for (Developpeur d : devs)
+	{
+	System.out.println(d);
+	}
+	}
+
 
 }
