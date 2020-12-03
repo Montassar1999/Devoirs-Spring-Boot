@@ -29,4 +29,5 @@ public class Societe {
 	@JsonIgnore
 	@OneToMany(mappedBy = "societe")
 	private List<Developpeur> developpeurs;
+	
 }

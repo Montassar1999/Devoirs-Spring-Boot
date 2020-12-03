@@ -57,7 +57,7 @@ public class Developpeur {
 	@Override
 	public String toString() {
 		return "Developpeur [idDeveloppeur=" + idDeveloppeur + ", nom=" + nom + ", salaire=" + salaire
-				+ ", dateEmbauche=" + dateEmbauche + "]";
+				+ ", dateEmbauche=" + dateEmbauche + ", societe=" + societe + "]";
 	}
 	
 	
